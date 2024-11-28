@@ -1,3 +1,10 @@
+import streamlit as st
+import pandas as pd
+import re
+
+st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.')
+
 # -*- coding: utf-8 -*-
 """Formatação Tweets - CMRJ
 
@@ -26,6 +33,8 @@ def processar_ordens(input_text, separador="?"):
 
     # Retornar as ordens formatadas como uma única string separada pelo separador
     return f" {separador} ".join(ordens_formatadas)
+    
+st.caption('Primeiro, copie toda a ordem do dia no site da Câmara e cole-a nesta caixa de inserção. Em seguida, copie o texto retornado para o próximo passo.')
 
 # Capturar o texto inserido pelo usuário
 input_text = input("Digite o texto da Ordem do Dia para primeiro organizá-lo:\n")
@@ -100,6 +109,9 @@ def formatar_tweets(ordem_dia):
                 tweets.append(f"#Ordemdodia {status}, o {prefixo} {numero_projeto}, que {descricao.lower()}.")
 
     return tweets
+
+
+st.caption('Agora, cole aqui o conteúdo copiado anteriormente e digite 'fim' quando tudo estiver enviado. Pronto, os tweets serão gerados.')
 
 def obter_entrada_usuario():
     print("Digite o texto da Ordem do Dia (Digite 'fim' para encerrar):")
