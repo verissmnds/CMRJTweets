@@ -111,7 +111,7 @@ def formatar_tweets(ordem_dia):
     return tweets
 
 
-st.caption('Agora, cole aqui o conteúdo copiado anteriormente e digite 'fim' quando tudo estiver enviado. Pronto, os tweets serão gerados.')
+st.caption("Agora, cole aqui o conteúdo copiado anteriormente e digite 'fim' quando tudo estiver enviado. Pronto, os tweets serão gerados.")
 
 def obter_entrada_usuario():
     print("Digite o texto da Ordem do Dia (Digite 'fim' para encerrar):")
