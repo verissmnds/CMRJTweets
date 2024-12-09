@@ -23,18 +23,19 @@ def processar_ordens(input_text, separador="?"):
     # Retornar as ordens formatadas como uma única string separada pelo separador
     return f" {separador} ".join(ordens_formatadas)
 
-st.caption('Primeiro, copie toda a ordem do dia no site da Câmara e cole-a nesta caixa de inserção. Em seguida, cole o texto retornado para o próximo passo.')
+st.markdown('<h2 style="text-align: center;">Ferramenta de Agilização para Tweets da Câmara Municipal do Rio 📐</h2>', unsafe_allow_html=True)
+st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA</p>', unsafe_allow_html=True)
 
 # Capturar o texto inserido pelo usuário
-input_text = st.text_area("Cole aqui o texto da Ordem do Dia:")
+st.markdown('<p style="font-size: 18px; font-weight: bold;">Primeiro, copie toda a ordem do dia no site da Câmara e cole-a nesta caixa de inserção. Em seguida, cole o texto retornado para o próximo passo.</p>', unsafe_allow_html=True)
+input_text = st.text_area("Cole aqui o texto da Ordem do Dia:", height=200)
 
 if input_text:
     # Chamando a função com o texto de entrada e o separador "?"
     output = processar_ordens(input_text, separador="?")
 
-    # Exibindo a saída no Streamlit
-    st.write("Texto Processado (Ordem do Dia):")
-    st.text(output)
+    # Exibindo o texto processado internamente, sem a necessidade de exibir "Texto Processado (Ordem do Dia):"
+    st.write("")
 
     def formatar_tweets(ordem_dia):
         tweets = []
@@ -94,8 +95,9 @@ if input_text:
     # Gerar os tweets com base no texto processado
     tweets = formatar_tweets(input_text)
 
+    # Exibir os tweets gerados
     if tweets:
-        st.write("Tweets Gerados:")
+        st.markdown('<p style="font-size: 20px; font-weight: bold;">Tweets Gerados:</p>', unsafe_allow_html=True)
         for tweet in tweets:
             st.write(tweet)
     else:
