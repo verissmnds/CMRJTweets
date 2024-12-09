@@ -4,6 +4,22 @@ import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
 
+# Definir a URL da imagem de fundo
+image_url = "https://github.com/verissmnds/CMRJTweets/blob/main/fotosite.png"
+
+# Adicionando a imagem de fundo
+st.markdown(f"""
+    <style>
+    .stApp {{
+        background-image: url("{image_url}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+    }}
+    </style>
+""", unsafe_allow_html=True)
+
 # Título da página
 st.markdown('<h2 style="text-align: center;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
 
