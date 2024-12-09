@@ -8,7 +8,7 @@ st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara
 st.markdown('<h2 style="text-align: center; color: #7d6436;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
 
 # Descrição da ferramenta
-st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size: 18px; text-align: center; color: #7d6436;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.</p>', unsafe_allow_html=True)
 
 # Instruções com link
 st.markdown(
@@ -110,7 +110,7 @@ if input_text:
     else:
         st.write("Nenhum projeto encontrado. Verifique o formato da entrada.")
 
-logo_url = "https://raw.githubusercontent.com/verissmnds/CMRJTweets/main/logosite.png"
+logo_url = "https://raw.githubusercontent.com/verissmnds/CMRJTweets/main/logo.png"
 
 # Exibir a logo no final da página
 st.markdown(f"""
