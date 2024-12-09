@@ -59,17 +59,17 @@ if input_text:
                 if tipo_match and numero_match:
                     tipo = tipo_match.group(1)
                     numero_projeto = numero_match.group(1)
-                    if descricao_match:
-                        descricao = descricao_match.group(1).capitalize().rstrip('.')
-                    else:
-                        descricao = "não especificada"
+                    descricao = descricao_match.group(1).capitalize().rstrip('.') if descricao_match else "não especificada"
 
                     if "LEI COMPLEMENTAR" in tipo:
                         prefixo = "PLC"
                     elif "EMENDA À LEI ORGÂNICA" in tipo:
                         prefixo = "PELOM"
+                    elif "DECRETO LEGISLATIVO" in tipo:
+                        prefixo = "PDL"
                     else:
                         prefixo = "PL"
+                    
                     discussao = discussao_match.group(1) if discussao_match else "em tramitação"
 
                     if "1ª DISCUSSÃO" in linha:
