@@ -3,7 +3,7 @@ import streamlit as st
 import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
-st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VAMOOS')
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA')
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
