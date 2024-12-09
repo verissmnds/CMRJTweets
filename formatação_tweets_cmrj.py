@@ -56,10 +56,14 @@ if input_text:
                 descricao_match = re.search(r'QUE "(.*?)"', linha)
                 discussao_match = re.search(r"EM (\dª DISCUSSÃO|DISCUSSÃO ÚNICA)", linha)
 
-                if tipo_match and numero_match and descricao_match:
+                if tipo_match and numero_match:
                     tipo = tipo_match.group(1)
                     numero_projeto = numero_match.group(1)
-                    descricao = descricao_match.group(1).capitalize().rstrip('.')
+                    if descricao_match:
+                        descricao = descricao_match.group(1).capitalize().rstrip('.')
+                    else:
+                        descricao = "não especificada"
+
                     if "LEI COMPLEMENTAR" in tipo:
                         prefixo = "PLC"
                     elif "EMENDA À LEI ORGÂNICA" in tipo:
@@ -78,6 +82,7 @@ if input_text:
                         status = "Em tramitação"
 
                     tweets.append(f"#Ordemdodia {status}, o {prefixo} {numero_projeto}, que {descricao.lower()}.")
+
         return tweets
 
     tweets = formatar_tweets(input_text)
