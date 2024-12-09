@@ -1,5 +1,5 @@
 import streamlit as st
-import panda as pd
+import pandas as pd
 import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
