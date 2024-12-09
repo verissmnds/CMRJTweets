@@ -110,7 +110,7 @@ if input_text:
     else:
         st.write("Nenhum projeto encontrado. Verifique o formato da entrada.")
 
-logo_url = 'https://github.com/verissmnds/CMRJTweets/blob/main/logosite.png'
+logo_url = "https://raw.githubusercontent.com/verissmnds/CMRJTweets/main/logosite.png"
 
 # Exibir a logo no final da página
 st.markdown(f"""
