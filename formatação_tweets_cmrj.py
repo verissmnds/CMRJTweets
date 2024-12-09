@@ -8,7 +8,7 @@ st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara
 st.markdown('<h2 style="text-align: center;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
 
 # Descrição da ferramenta
-st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.</p>', unsafe_allow_html=True)
 
 # Instruções
 st.markdown('<p style="font-size: 18px; font-weight: bold;">Primeiro, copie toda a ordem do dia no site da Câmara e cole-a nesta caixa de inserção. Em seguida, cole o texto retornado para o próximo passo.</p>', unsafe_allow_html=True)
