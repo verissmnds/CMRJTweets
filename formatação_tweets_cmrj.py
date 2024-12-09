@@ -2,10 +2,6 @@ import pandas as pd
 import streamlit as st
 import re
 
-import pandas as pd
-import streamlit as st
-import re
-
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
 
 # Definir a URL "raw" da logo
