@@ -3,7 +3,18 @@ import streamlit as st
 import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
-st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA')
+
+# Título da página
+st.markdown('<h2 style="text-align: center;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
+
+# Descrição da ferramenta
+st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA</p>', unsafe_allow_html=True)
+
+# Instruções
+st.markdown('<p style="font-size: 18px; font-weight: bold;">Primeiro, copie toda a ordem do dia no site da Câmara e cole-a nesta caixa de inserção. Em seguida, cole o texto retornado para o próximo passo.</p>', unsafe_allow_html=True)
+
+# Capturar o texto inserido pelo usuário
+input_text = st.text_area("Cole aqui o texto da Ordem do Dia:", height=200)
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
@@ -22,13 +33,6 @@ def processar_ordens(input_text, separador="?"):
 
     # Retornar as ordens formatadas como uma única string separada pelo separador
     return f" {separador} ".join(ordens_formatadas)
-
-st.markdown('<h2 style="text-align: center;">Ferramenta de Agilização para Tweets da Câmara Municipal do Rio 📐</h2>', unsafe_allow_html=True)
-st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA</p>', unsafe_allow_html=True)
-
-# Capturar o texto inserido pelo usuário
-st.markdown('<p style="font-size: 18px; font-weight: bold;">Primeiro, copie toda a ordem do dia no site da Câmara e cole-a nesta caixa de inserção. Em seguida, cole o texto retornado para o próximo passo.</p>', unsafe_allow_html=True)
-input_text = st.text_area("Cole aqui o texto da Ordem do Dia:", height=200)
 
 if input_text:
     # Chamando a função com o texto de entrada e o separador "?"
