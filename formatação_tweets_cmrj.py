@@ -13,11 +13,11 @@ st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta fac
 # Instruções com link
 st.markdown(
     '<p style="font-size: 18px; font-weight: bold;">'
-    'Primeiro, copie toda a <a href="https://www.camara.rio/atividade-parlamentar/plenario/ordem-do-dia" target="_blank">ordem do dia</a> no site da Câmara e cole-a nesta caixa de inserção.'
+    'Copie toda a <a href="https://www.camara.rio/atividade-parlamentar/plenario/ordem-do-dia" target="_blank">ordem do dia</a> no site da Câmara e cole-a nesta caixa de inserção.'
     '</p>', unsafe_allow_html=True)
 
 # Capturar o texto inserido pelo usuário
-input_text = st.text_area("Cole aqui o texto da Ordem do Dia:", height=200)
+input_text = st.text_area("", height=200)
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
