@@ -1,19 +1,9 @@
 import pandas as pd
 import streamlit as st
 import re
-import language_tool_python
 
-# Configuração inicial do Streamlit
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
-st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VAMO VER')
-
-# Inicializar o LanguageTool para português
-tool = language_tool_python.LanguageTool('pt-BR')
-
-# Função para corrigir a ortografia
-def corrigir_ortografia(texto):
-    matches = tool.check(texto)
-    return language_tool_python.utils.correct(texto, matches)
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VAMOOS')
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
@@ -94,9 +84,7 @@ if input_text:
                     else:
                         status = "Em tramitação"
 
-                    tweet = f"#Ordemdodia {status}, o {prefixo} {numero_projeto}, que {descricao.lower()}."
-                    tweet_corrigido = corrigir_ortografia(tweet)  # Corrigir ortografia do tweet
-                    tweets.append(tweet_corrigido)
+                    tweets.append(f"#Ordemdodia {status}, o {prefixo} {numero_projeto}, que {descricao.lower()}.")
 
         return tweets
 
