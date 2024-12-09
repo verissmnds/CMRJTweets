@@ -4,7 +4,7 @@ import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
 
-# Definir a URL da imagem de fundo
+# Definir a URL "raw" da imagem de fundo
 image_url = "https://github.com/verissmnds/CMRJTweets/blob/main/fotosite.png"
 
 # Adicionando a imagem de fundo
