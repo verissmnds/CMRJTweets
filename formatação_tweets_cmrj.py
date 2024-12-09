@@ -3,7 +3,7 @@ import pandas as pd
 import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
-st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. FINALMENTES')
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. FINALFINAL')
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
@@ -56,7 +56,8 @@ if input_text:
 
             # Identificar projetos de lei, decretos e emendas
             elif "PROJETO DE" in linha or "EMENDA À LEI ORGÂNICA" in linha:
-                tipo_match = re.search(r"PROJETO DE (LEI|DECRETO LEGISLATIVO|EMENDA À LEI ORGÂNICA|LEI COMPLEMENTAR)", linha)
+                # Aqui vamos especificar todos os tipos que NÃO são LEI (a exceção será PL)
+                tipo_match = re.search(r"PROJETO DE (DECRETO LEGISLATIVO|EMENDA À LEI ORGÂNICA|LEI COMPLEMENTAR)", linha)
                 # Ajustando a expressão regular para permitir o sufixo "-A" nos números
                 numero_match = re.search(r"Nº (\d+[-A]*/\d+)", linha)
                 descricao_match = re.search(r'QUE "(.*?)"', linha)
@@ -66,11 +67,12 @@ if input_text:
                     tipo = tipo_match.group(1)
                     numero_projeto = numero_match.group(1)
                     descricao = descricao_match.group(1).capitalize().rstrip('.')
-                    # Corrigindo para verificar "LEI COMPLEMENTAR" e usar "PLC" corretamente
+                    # Se o tipo for "LEI COMPLEMENTAR", o prefixo será "PLC"
                     if "LEI COMPLEMENTAR" in tipo:
-                        prefixo = "PLC"  # Aqui, estamos garantindo que será usado "PLC"
+                        prefixo = "PLC"
                     else:
-                        prefixo = {"LEI": "PL", "DECRETO LEGISLATIVO": "PDL", "EMENDA À LEI ORGÂNICA": "PELOM"}.get(tipo, "PL")
+                        # Para todos os outros tipos que não sejam "LEI", será "PL"
+                        prefixo = "PL"
                     discussao = discussao_match.group(1) if discussao_match else "em tramitação"
 
                     if "1ª DISCUSSÃO" in linha:
