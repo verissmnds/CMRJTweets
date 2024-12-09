@@ -3,7 +3,7 @@ import pandas as pd
 import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
-st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.')
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. FINALMENTES')
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
@@ -66,9 +66,9 @@ if input_text:
                     tipo = tipo_match.group(1)
                     numero_projeto = numero_match.group(1)
                     descricao = descricao_match.group(1).capitalize().rstrip('.')
-                    # Modificando a lógica para reconhecer o tipo de projeto corretamente
+                    # Corrigindo para verificar "LEI COMPLEMENTAR" e usar "PLC" corretamente
                     if "LEI COMPLEMENTAR" in tipo:
-                        prefixo = "PLC"  # Alterando para "PLC" para projetos de Lei Complementar
+                        prefixo = "PLC"  # Aqui, estamos garantindo que será usado "PLC"
                     else:
                         prefixo = {"LEI": "PL", "DECRETO LEGISLATIVO": "PDL", "EMENDA À LEI ORGÂNICA": "PELOM"}.get(tipo, "PL")
                     discussao = discussao_match.group(1) if discussao_match else "em tramitação"
