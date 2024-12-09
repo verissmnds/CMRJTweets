@@ -13,7 +13,7 @@ st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta fac
 # Instruções com link
 st.markdown(
     '<p style="font-size: 18px; font-weight: bold;">'
-    'Primeiro, copie toda a <a href="https://www.camara.rio/atividade-parlamentar/plenario/ordem-do-dia" target="_blank">ordem do dia</a> no site da Câmara e cole-a nesta caixa de inserção. Em seguida, cole o texto retornado para o próximo passo.'
+    'Primeiro, copie toda a <a href="https://www.camara.rio/atividade-parlamentar/plenario/ordem-do-dia" target="_blank">ordem do dia</a> no site da Câmara e cole-a nesta caixa de inserção.'
     '</p>', unsafe_allow_html=True)
 
 # Capturar o texto inserido pelo usuário
