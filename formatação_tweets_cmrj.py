@@ -4,18 +4,8 @@ import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
 
-# Definir a URL "raw" da logo
-logo_url = "https://github.com/verissmnds/CMRJTweets/blob/main/logosite.png"
-
-# Exibir a logo acima do título
-st.markdown(f"""
-    <div style="text-align: center;">
-        <img src="{logo_url}" alt="Logo" style="width: 150px; margin-bottom: -20px;">
-    </div>
-""", unsafe_allow_html=True)
-
-# Título da página
-st.markdown('<h2 style="text-align: center;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
+# Título da página com cor personalizada
+st.markdown('<h2 style="text-align: center; color: #7d6436;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
 
 # Descrição da ferramenta
 st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.</p>', unsafe_allow_html=True)
@@ -119,3 +109,13 @@ if input_text:
             st.write(tweet)
     else:
         st.write("Nenhum projeto encontrado. Verifique o formato da entrada.")
+
+logo_url = 'https://github.com/verissmnds/CMRJTweets/blob/main/logosite.png'
+
+# Exibir a logo no final da página
+st.markdown(f"""
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="{logo_url}" alt="Logo" style="width: 150px;">
+    </div>
+""", unsafe_allow_html=True)
+
