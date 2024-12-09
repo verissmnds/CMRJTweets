@@ -2,6 +2,9 @@ import streamlit as st
 import panda as pd
 import re
 
+st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. alltera asdsfsofko')
+
 # Função para reconhecer e extrair o número do projeto, incluindo formatos com "-A"
 def reconhecer_numero_projeto(linha):
     """
@@ -13,7 +16,7 @@ def reconhecer_numero_projeto(linha):
         return match.group(1)
     return None
 
-# Função principal com a lógica aprimorada para leitura de projetos
+# Função principal para formatar os tweets
 def formatar_tweets(ordem_dia):
     tweets = []
     linhas = ordem_dia.split("\n")  # Divide o texto em linhas
@@ -56,3 +59,18 @@ def formatar_tweets(ordem_dia):
                 tweets.append(f"#Ordemdodia {status}, o {prefixo} {numero_projeto}, que {descricao.lower()}.")
 
     return tweets
+
+# Entrada do usuário no Streamlit
+input_text = st.text_area("Cole aqui o texto da Ordem do Dia:")
+
+if input_text:
+    # Gerar os tweets com base no texto de entrada
+    tweets = formatar_tweets(input_text)
+
+    # Exibir os tweets gerados
+    if tweets:
+        st.write("Tweets Gerados:")
+        for tweet in tweets:
+            st.write(tweet)
+    else:
+        st.write("Nenhum projeto encontrado. Verifique o formato da entrada.")
