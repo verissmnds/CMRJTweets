@@ -3,7 +3,7 @@ import pandas as pd
 import re
 
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
-st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. DIFERENTE')
+st.caption('Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.')
 
 def processar_ordens(input_text, separador="?"):
     # Expressão regular para encontrar os números de tramitação seguidos das informações
@@ -57,7 +57,8 @@ if input_text:
             # Identificar projetos de lei, decretos e emendas
             elif "PROJETO DE" in linha or "EMENDA À LEI ORGÂNICA" in linha:
                 tipo_match = re.search(r"PROJETO DE (LEI|DECRETO LEGISLATIVO|EMENDA À LEI ORGÂNICA|LEI COMPLEMENTAR)", linha)
-                numero_match = re.search(r"Nº (\d+[-A]?/\d+)", linha)
+                # Ajustando a expressão regular para permitir o sufixo "-A" nos números
+                numero_match = re.search(r"Nº (\d+[-A]*/\d+)", linha)
                 descricao_match = re.search(r'QUE "(.*?)"', linha)
                 discussao_match = re.search(r"EM (\dª DISCUSSÃO|DISCUSSÃO ÚNICA)", linha)
 
@@ -65,7 +66,11 @@ if input_text:
                     tipo = tipo_match.group(1)
                     numero_projeto = numero_match.group(1)
                     descricao = descricao_match.group(1).capitalize().rstrip('.')
-                    prefixo = {"LEI": "PL", "DECRETO LEGISLATIVO": "PDL", "EMENDA À LEI ORGÂNICA": "PELOM", "LEI COMPLEMENTAR": "PLC"}.get(tipo, "PL")
+                    # Modificando a lógica para reconhecer o tipo de projeto corretamente
+                    if "LEI COMPLEMENTAR" in tipo:
+                        prefixo = "PLC"  # Alterando para "PLC" para projetos de Lei Complementar
+                    else:
+                        prefixo = {"LEI": "PL", "DECRETO LEGISLATIVO": "PDL", "EMENDA À LEI ORGÂNICA": "PELOM"}.get(tipo, "PL")
                     discussao = discussao_match.group(1) if discussao_match else "em tramitação"
 
                     if "1ª DISCUSSÃO" in linha:
