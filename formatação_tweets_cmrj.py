@@ -2,22 +2,20 @@ import pandas as pd
 import streamlit as st
 import re
 
+import pandas as pd
+import streamlit as st
+import re
+
 st.set_page_config(page_title="Ferramenta de Agilização para Tweets da Câmara Municipal do Rio", page_icon="📐", layout="wide")
 
-# Definir a URL "raw" da imagem de fundo
-image_url = "https://github.com/verissmnds/CMRJTweets/blob/main/fotosite.png"
+# Definir a URL "raw" da logo
+logo_url = "https://github.com/verissmnds/CMRJTweets/blob/main/logosite.png"
 
-# Adicionando a imagem de fundo
+# Exibir a logo acima do título
 st.markdown(f"""
-    <style>
-    .stApp {{
-        background-image: url("{image_url}");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-    }}
-    </style>
+    <div style="text-align: center;">
+        <img src="{logo_url}" alt="Logo" style="width: 150px; margin-bottom: -20px;">
+    </div>
 """, unsafe_allow_html=True)
 
 # Título da página
