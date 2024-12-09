@@ -24,7 +24,7 @@ st.markdown(f"""
 st.markdown('<h2 style="text-align: center;">Gerador de tweets da Câmara Municipal do Rio</h2>', unsafe_allow_html=True)
 
 # Descrição da ferramenta
-st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação. VA</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size: 18px; text-align: center;">Essa ferramenta facilita a criação de tweets para as sessões plenárias, otimizando o tempo e a precisão na comunicação.</p>', unsafe_allow_html=True)
 
 # Instruções com link
 st.markdown(
