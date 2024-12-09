@@ -70,6 +70,9 @@ if input_text:
                     # Se o tipo for "LEI COMPLEMENTAR", o prefixo será "PLC"
                     if "LEI COMPLEMENTAR" in tipo:
                         prefixo = "PLC"
+                    # Se o tipo for "EMENDA À LEI ORGÂNICA", o prefixo será "PELOM"
+                    elif "EMENDA À LEI ORGÂNICA" in tipo:
+                        prefixo = "PELOM"
                     else:
                         # Para todos os outros tipos que não sejam "LEI", será "PL"
                         prefixo = "PL"
